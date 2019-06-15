@@ -25,12 +25,4 @@ fun main() {
     println(users.get(0))
 
     println("Hello world")
-
-
-
-    ignite.dataStreamer<Int, ActivityEvent>("activity_event_stream").use { stmr ->
-        // Stream entries.
-        for (i in 0..30)
-            stmr.addData(i, ActivityEvent(0, ActivityScoringMultiplier.RUNNING, Date(2017,1,i), i) )
-    }
 }

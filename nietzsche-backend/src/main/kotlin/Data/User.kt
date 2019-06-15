@@ -1,5 +1,7 @@
 package Data
 
-data class User(var id: Int, var username: String, var email: String) {
+import io.ktor.auth.Principal
+
+data class User(override var id: Int, var username: String, var email: String) : IgniteRecord<Int>(), Principal {
 
 }

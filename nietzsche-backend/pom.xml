@@ -72,6 +72,13 @@
             <version>${ktor.version}</version>
             <scope>compile</scope>  
         </dependency>
+        <dependency>
+            <groupId>io.ktor</groupId>
+            <artifactId>ktor-gson</artifactId>
+            <version>${ktor.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
