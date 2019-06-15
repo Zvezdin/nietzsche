@@ -1,0 +1,30 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.nietzsche">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <meta-data
+          android:name="com.samsung.android.health.permission.read"
+          android:value="com.samsung.health.weight;com.samsung.health.step_count;com.samsung.shealth.step_daily_trend;com.samsung.health.height;com.samsung.health.blood_pressure;com.samsung.health.heart_rate;com.samsung.health.sleep;com.samsung.health.body_temperature;" 
+          />
+    </application>
+
+</manifest>
