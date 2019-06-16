@@ -12,14 +12,17 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import ActiveView from './views/Active'
 import RecommendedView from './views/Recommended'
 import MarketplaceView from './views/Marketplace'
+import ProfileView from './views/Profile'
+
 
 class Main extends React.Component {
     state = {
         index: 0,
         routes: [
             { key: 'first', title: 'Active' },
-            { key: 'second', title: 'Marketplace' },
-            { key: 'third', title: 'Recommended' },
+            { key: 'second', title: 'Recommended' },
+            { key: 'third', title: 'Marketplace' },
+            { key: 'fourth', title: 'Profile' },
         ],
     };
 
@@ -29,8 +32,9 @@ class Main extends React.Component {
                 navigationState={this.state}
                 renderScene={SceneMap({
                     first: ActiveView,
-                    second: MarketplaceView,
-                    third: RecommendedView
+                    second: RecommendedView,
+                    third: MarketplaceView,
+                    fourth: ProfileView
                 })}
                 onIndexChange={index => this.setState({ index })}
                 initialLayout={{ width: Dimensions.get('window').width }}
