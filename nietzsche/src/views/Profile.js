@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { Card, Button, Icon, Image } from 'react-native-elements'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import OptionsModal from '../components/Options'
 
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
@@ -52,6 +53,7 @@ class ProfileView extends Component {
                         backgroundColor='#03A9F4'
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
                         title="Options"
+                        onPress={() => {}}
                     />
                 </Card>
             </ScrollView>

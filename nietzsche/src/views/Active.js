@@ -12,7 +12,7 @@ class ActiveView extends Component {
      * Dummy props
      */
     dummyProps = [{
-        id: "1abcfd8",
+        id: "1abcf2d8",
         title: "Swim 104m",
         description: "Swimming is cool",
         reward: {
@@ -22,7 +22,7 @@ class ActiveView extends Component {
         progress: 88,
         target: 104,
     },{
-        id: "1abcfd9",
+        id: "1a12bcfd9",
         title: "Run 300m",
         description: "Running",
         reward: {
@@ -32,7 +32,7 @@ class ActiveView extends Component {
         progress: 23,
         target: 300,
     }, {
-        id: "1abc2d9",
+        id: "176abc2d9",
         title: "Climb 300 stairs",
         description: "Running",
         reward: {
@@ -43,7 +43,7 @@ class ActiveView extends Component {
         target: 300,
     },
     {
-        id: "1abc2d9",
+        id: "1ab34c2d9",
         title: "Climb 300 stairs",
         description: "Running",
         reward: {
@@ -54,7 +54,7 @@ class ActiveView extends Component {
         target: 300,
     },
     {
-        id: "1abc2ds9",
+        id: "1a89bc2ds9",
         title: "Climb 300 stairs",
         description: "Running",
         reward: {
@@ -65,7 +65,7 @@ class ActiveView extends Component {
         target: 300,
     },
     {
-        id: "1abc2d39",
+        id: "1abc072d39",
         title: "Climb 300 stairs",
         description: "Running",
         reward: {

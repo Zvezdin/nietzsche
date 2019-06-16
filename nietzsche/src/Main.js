@@ -13,6 +13,8 @@ import ActiveView from './views/Active'
 import RecommendedView from './views/Recommended'
 import MarketplaceView from './views/Marketplace'
 import ProfileView from './views/Profile'
+import RankingView from './views/RankingView'
+
 
 
 class Main extends React.Component {
@@ -23,6 +25,7 @@ class Main extends React.Component {
             { key: 'second', title: 'More' },
             { key: 'third', title: 'Market' },
             { key: 'fourth', title: 'Profile' },
+            { key: 'fifth', title: 'Ranks' },            
         ],
     };
 
@@ -34,7 +37,8 @@ class Main extends React.Component {
                     first: ActiveView,
                     second: RecommendedView,
                     third: MarketplaceView,
-                    fourth: ProfileView
+                    fourth: ProfileView,
+                    fifth: RankingView,
                 })}
                 onIndexChange={index => this.setState({ index })}
                 initialLayout={{ width: Dimensions.get('window').width }}

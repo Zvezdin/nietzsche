@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from 'react-native'
 import { Card, Button, Icon } from 'react-native-elements'
 
 
-class MarketplaceView extends Component {
+class RankingView extends Component {
     
     constructor(props){
         super(props)
@@ -72,12 +72,6 @@ class MarketplaceView extends Component {
                 </Text>
                 <Icon name="money" type='font-awesome'/>
             </View>
-            <Button
-                icon={<Icon name='plus' type='font-awesome' color='#ffffff' />}
-                backgroundColor='#03A9F4'
-                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                title="  BUY"
-            />
         </Card>
     )
 
@@ -90,4 +84,4 @@ class MarketplaceView extends Component {
     }
 }
 
-export default MarketplaceView;
+export default RankingView;

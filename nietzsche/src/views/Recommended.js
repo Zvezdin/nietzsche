@@ -90,17 +90,16 @@ class RecommendedView extends Component {
                 <Text style={{ marginBottom: 10 }}>
                     {ci.description}
                 </Text>
-                <View>
+                <View style={{flex: 1, flexDirection: 'row', bottomPadding: 20}}>
                     <Text style={{ marginBottom: 10 }}>
-                        Rewards are {ci.reward.kcal} XP, and {ci.reward.gold}
+                        REWARDS: {ci.reward.kcal} {'  '}
                     </Text>
+                        <Icon name="fire" type="font-awesome"/>
+                    <Text>
+                        {'  '} {ci.reward.gold} {'  '}
+                    </Text>
+                        <Icon name="money" type='font-awesome'/>
                 </View>
-
-                {/* <Button
-                        icon={<Icon name='code' color='#ffffff' />}
-                        backgroundColor='#03A9F4'
-                        buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title="VIEW NOW" /> */}
             </View>
             <View>
                 <Button
