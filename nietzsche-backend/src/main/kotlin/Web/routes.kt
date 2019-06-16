@@ -8,7 +8,6 @@ import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.auth.UserPasswordCredential
-import io.ktor.auth.authenticate
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.*
@@ -31,7 +30,7 @@ fun Application.routes() {
 
         get("/") {
             call.respond(mapOf("OK" to true))
-            Database.activityEvents.addData(0, ActivityEvent(0, ActivityType.STEPS, Date(), 12))
+            Database.activityEvents.addData(0, ActivityEvent(0, ActivityType.SWIMMING, Date(), 2))
             Database.activityEvents.flush()
         }
 
@@ -58,8 +57,38 @@ fun Application.routes() {
             }
 
             get("/{id}/buy") {
-                  Database.Market.buy( call.parameters["id"]!!.toInt(), 0 )
+                call.respond( Database.Market.buy( call.parameters["id"]!!.toInt(), 0 ) )
             }
+        }
+
+        route("users") {
+            get("/{id}/quests") {
+                val userId = call.parameters["id"]!!.toInt()
+                val count = call.request.queryParameters["count"]?.let{ it.toInt() } ?: 5
+
+                call.respond( Database.Quests.recommend(userId, count) ?: { mapOf("error" to "User not found") })
+            }
+
+            get("/{id}/accept/{quest}") {
+                val userId = call.parameters["id"]!!.toInt()
+                val questId = call.parameters["quest"]!!.toInt()
+                call.respond( Database.Quests.accept(userId, questId) )
+
+            }
+
+            get("/top/{time?}") {
+                val count = call.request.queryParameters["count"]?.let{ it.toInt() } ?: 5
+
+                if(call.parameters.contains("time")){
+                    val time = call.parameters["time"]
+                    call.respond(Database.Users.top(count, TimePeriod.valueOf(time!!)))
+
+                }else{
+                    call.respond(Database.Users.top(count))
+
+                }
+            }
+
         }
 
 //        /**
