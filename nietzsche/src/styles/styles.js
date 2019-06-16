@@ -4,6 +4,13 @@ export const buttons = StyleSheet.create({
 	
 })
 
+export const cardStyle = StyleSheet.create({
+	inProgressCard: {
+		flex: 1,
+		flexDirection: 'row'
+	}
+})
+
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,

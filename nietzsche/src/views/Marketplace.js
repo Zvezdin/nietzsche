@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
+import { Card, Button, Icon } from 'react-native-elements'
 
 class MarketplaceView extends Component {
     
@@ -8,14 +9,64 @@ class MarketplaceView extends Component {
         console.log(props)       
     }
 
+    items = [{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },
+    {
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },{
+        id: "123213",
+        image: "",
+        title: "1 month tax-free bank transactions",
+        price: 350,
+    },]
+
+    card = (e) => (
+        <Card
+            title={e.title}>
+            <Text style={{marginBottom: 10}}>
+                PRICE: <Text>{e.price}</Text>
+            </Text>
+            <Button
+                icon={<Icon name='code' color='#ffffff' />}
+                backgroundColor='#03A9F4'
+                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                title="BUY"
+            />
+        </Card>
+    )
+
     render() {
         return (
-            <View>
-                <Text>
-                    This is marketplace view
-                    Hi {JSON.stringify(this.props.navigation)}
-                </Text>
-            </View>
+            <ScrollView>
+                {this.items.map(ci => this.card(ci))}
+            </ScrollView>
         );
     }
 }
