@@ -82,22 +82,16 @@ class ActiveView extends Component {
                 <Text style={{ marginBottom: 10 }}>
                     {ci.description}
                 </Text>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{flex: 1, flexDirection: 'row', bottomPadding: 20}}>
                     <Text style={{ marginBottom: 10 }}>
                         REWARDS: {ci.reward.kcal} {'  '}
                     </Text>
                         <Icon name="fire" type="font-awesome"/>
                     <Text>
-                        {'  '} {ci.reward.gold} 
+                        {'  '} {ci.reward.gold} {'  '}
                     </Text>
                         <Icon name="money" type='font-awesome'/>
                 </View>
-
-                {/* <Button
-                        icon={<Icon name='code' color='#ffffff' />}
-                        backgroundColor='#03A9F4'
-                        buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title="VIEW NOW" /> */}
             </View>
             <View>
                 <Progress.Bar color="green" progress={ci.progress / ci.target} width={Dimensions.get('window').width - 60} />
@@ -110,8 +104,6 @@ class ActiveView extends Component {
     ))
 
     render() {
-        const { title, progress, description, target, reward } = this.dummyProps
-
         return (
             <ScrollView>
                 {this.listArr}
