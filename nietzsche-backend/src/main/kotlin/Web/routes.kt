@@ -61,6 +61,13 @@ fun Application.routes() {
             }
         }
 
+        get("/quest/{id}") {
+            call.respond( Database.quests.get(call.parameters["id"]!!.toInt()) )
+
+        }
+
+
+
         route("users") {
             get("/{id}/quests") {
                 val userId = call.parameters["id"]!!.toInt()
