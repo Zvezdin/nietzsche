@@ -39,6 +39,7 @@ object Database {
     object Users {
         fun top(count: Int, period: TimePeriod) : List<UserState> {
             val calendar = Calendar.getInstance()
+            usersState.putAsync(0, )
             return usersState.sortedByDescending {
                 it.value.timeBasedCallories[period]?.let {
                     if(period == TimePeriod.Day && calendar.get(Calendar.DAY_OF_YEAR) == it.time) {
@@ -138,6 +139,7 @@ object Database {
             user.quests = user.quests.filter { !completed.contains(it.quest) }
             user.completedQuests += completed
             user.gold += reward
+            user.level += 1
 
             user.calories += event.calories
             println("User updated: $user")
