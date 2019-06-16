@@ -37,45 +37,5 @@ fun Application.module() {
 //        }
     }
 
-    install(Routing) {
 
-        /**
-         * A public login [Route] used to obtain JWTs
-         */
-        post("login") {
-            val credentials = call.receive<UserPasswordCredential>()
-//            val user = userSource.findUserByCredentials(credentials)
-//            val token = JwtConfig.makeToken(user)
-//            call.respondText(token)
-        }
-
-        /**
-         * All [Route]s in the authentication block are secured.
-         */
-        authenticate {
-            route("secret") {
-
-                get {
-//                    val user = call.user!!
-//                    call.respond(user.countries)
-                }
-
-                put {
-                    TODO("All your secret routes can follow here")
-                }
-
-            }
-        }
-
-        /**
-         * Routes with optional authentication
-         */
-        authenticate(optional = true) {
-            get("optional") {
-//                val user = call.user
-//                val response = if (user != null) "authenticated!" else "optional"
-//                call.respond(response)
-            }
-        }
-    }
 }

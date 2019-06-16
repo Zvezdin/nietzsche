@@ -1,6 +1,9 @@
-import Data.ActivityEvent
-import Data.ActivityScoringMultiplier
+
 import Data.User
+import Web.module
+import Web.routes
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
 import org.apache.ignite.Ignition
 import org.apache.ignite.cache.query.ScanQuery
 import java.nio.file.Paths
@@ -9,20 +12,10 @@ import java.util.*
 
 
 fun main() {
-    var ignite = Ignition.start(igniteConfiguration {
-        igniteHome = Paths.get("ignite").toAbsolutePath().toString()
-    })
+    Database.listen()
+    println(Database.counter.query(ScanQuery<String, Int>()).map { "${it.key}: ${it.value}" })
 
-    var users = ignite.getOrCreateCache<Int, User>("Users")
-
-    var user = User(0, "alex4o", "bonin@abv.bg")
-    users.put(user.id, user)
-
-    users.query(ScanQuery<Int, User>()).forEach {
-        println("${it.key}: ${it.value}")
-    }
-
-    println(users.get(0))
-
-    println("Hello world")
+    Database.fake()
+    println(Database.counter.query(ScanQuery<String, Int>()).map { "${it.key}: ${it.value}" })
+    embeddedServer(Netty, 8080) { module(); routes() }.start(true)
 }
