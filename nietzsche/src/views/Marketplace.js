@@ -7,50 +7,65 @@ class MarketplaceView extends Component {
     
     constructor(props){
         super(props)
-        console.log(props)       
+        // console.log(props) 
+        fetch("http://192.168.43.197:8080/market")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ items: data })
+
+                console.log("Data: ", data)
+            })
+            .catch(error => {
+                this.setState({ items: this.items })
+                console.log("Error: ", error)
+            })
+    }
+
+    state = {
+        items: []
     }
 
     items = [{
         id: "123213",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },{
         id: "1232213",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },{
         id: "1232313",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },{
         id: "1232143",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },
     {
         id: "1232153",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },{
         id: "1231213",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },{
         id: "12321113",
         image: "",
-        title: "1 month tax-free bank transactions",
+        name: "1 month tax-free bank transactions",
         price: 350,
     },]
 
     card = (e) => (
         <Card
-            title={e.title}>
+            title={e.name}>
             <View style={{ flex: 1, flexDirection: 'row', textAlign: 'center', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
                 <Text>
                     PRICE: <Text>{e.price}</Text> {'  '}
@@ -69,7 +84,7 @@ class MarketplaceView extends Component {
     render() {
         return (
             <ScrollView>
-                {this.items.map(ci => this.card(ci))}
+                {this.state.items.map(ci => this.card(ci))}
             </ScrollView>
         );
     }

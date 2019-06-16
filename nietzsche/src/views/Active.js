@@ -6,14 +6,6 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { cardStyle } from '../styles/styles'
 import { ScrollView } from 'react-native-gesture-handler';
 
-const users = [
-    {
-        name: 'brynn',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    },
-    // more users here
-]
-
 class ActiveView extends Component {
 
     /**

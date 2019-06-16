@@ -39,7 +39,7 @@ object Database {
     object Users {
         fun top(count: Int, period: TimePeriod) : List<UserState> {
             val calendar = Calendar.getInstance()
-            usersState.putAsync(0, )
+            // usersState.putAsync(0, )
             return usersState.sortedByDescending {
                 it.value.timeBasedCallories[period]?.let {
                     if(period == TimePeriod.Day && calendar.get(Calendar.DAY_OF_YEAR) == it.time) {

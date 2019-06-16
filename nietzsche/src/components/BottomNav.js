@@ -35,8 +35,8 @@ export default class BottomNav extends React.Component {
 
     render() {
 
-        console.log(SceneMap, Dimensions.get('window').width, "TVA IMA LI GO")
-        console.log(<TabView/>, "TVA IMA LI GO")
+        // console.log(SceneMap, Dimensions.get('window').width, "TVA IMA LI GO")
+        // console.log(<TabView/>, "TVA IMA LI GO")
         return (
             <View>
                 <Text> Hello </Text>

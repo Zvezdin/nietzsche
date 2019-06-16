@@ -48,6 +48,7 @@ fun Application.routes() {
 
         route("market") {
             get {
+                println("getMarket")
                 call.respond( Database.market.query(ScanQuery<Int, MarketItem>()).map { it.value } )
             }
 
