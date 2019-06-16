@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 
+export const buttons = StyleSheet.create({
+	
+})
+
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
