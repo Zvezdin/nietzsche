@@ -3,6 +3,8 @@ import { View, Text, ScrollView } from 'react-native'
 import { Card, Button, Icon, Image } from 'react-native-elements'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 class ProfileView extends Component {
 
     constructor(props) {
@@ -26,7 +28,23 @@ class ProfileView extends Component {
                             source={{ uri: "https://avatars3.githubusercontent.com/u/24723757?s=460&v=4" }}
                             style={{ width: 200, height: 200, marginBottom: 25 }}
                         />
-                    <Text style={{ fontSize: 24, textAlign: 'center', marginBottom: 20 }}> <FontAwesomeIcon icon="fire"/> 450, GOLD: 1250 </Text>
+                        <View style={{flex: 1, flexDirection: 'row'}}>
+                            <View style={{ marginRight: 50 }}>
+                                <Icon name="fire" type="font-awesome"/>
+                                <Text style={{ fontSize: 24, textAlign: 'center', marginBottom: 20 }}> 
+                                    450
+                                </Text>
+                            </View>
+                            
+                            <View>
+                                <Icon name="money" type='font-awesome'/>
+                                    <Text style={{ fontSize: 24, textAlign: 'center', marginBottom: 20 }}> 
+                                        1250
+                                    </Text>
+                            </View>
+                        </View>
+                        
+
 
                     </View>
                     <Button

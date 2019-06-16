@@ -4,7 +4,7 @@ import { View, Text, Image, Dimensions } from 'react-native'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 import { styles } from './styles/styles'
 import { TabView, SceneMap } from 'react-native-tab-view';
 
@@ -19,9 +19,9 @@ class Main extends React.Component {
     state = {
         index: 0,
         routes: [
-            { key: 'first', title: 'Active' },
-            { key: 'second', title: 'Recommended' },
-            { key: 'third', title: 'Marketplace' },
+            { key: 'first', title: 'Active'},
+            { key: 'second', title: 'More' },
+            { key: 'third', title: 'Market' },
             { key: 'fourth', title: 'Profile' },
         ],
     };

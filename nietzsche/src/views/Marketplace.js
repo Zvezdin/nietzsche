@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { Card, Button, Icon } from 'react-native-elements'
 
+
 class MarketplaceView extends Component {
     
     constructor(props){
@@ -50,14 +51,17 @@ class MarketplaceView extends Component {
     card = (e) => (
         <Card
             title={e.title}>
-            <Text style={{marginBottom: 10}}>
-                PRICE: <Text>{e.price}</Text>
-            </Text>
+            <View style={{ flex: 1, flexDirection: 'row', textAlign: 'center', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
+                <Text>
+                    PRICE: <Text>{e.price}</Text> {'  '}
+                </Text>
+                <Icon name="money" type='font-awesome'/>
+            </View>
             <Button
-                icon={<Icon name='code' color='#ffffff' />}
+                icon={<Icon name='plus' type='font-awesome' color='#ffffff' />}
                 backgroundColor='#03A9F4'
                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                title="BUY"
+                title="  BUY"
             />
         </Card>
     )

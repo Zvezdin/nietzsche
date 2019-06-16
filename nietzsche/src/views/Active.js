@@ -90,10 +90,15 @@ class ActiveView extends Component {
                 <Text style={{ marginBottom: 10 }}>
                     {ci.description}
                 </Text>
-                <View>
+                <View style={{flex: 1, flexDirection: 'row'}}>
                     <Text style={{ marginBottom: 10 }}>
-                        Rewards are {ci.reward.kcal} XP, and {ci.reward.gold}
+                        REWARDS: {ci.reward.kcal} {'  '}
                     </Text>
+                        <Icon name="fire" type="font-awesome"/>
+                    <Text>
+                        {'  '} {ci.reward.gold} 
+                    </Text>
+                        <Icon name="money" type='font-awesome'/>
                 </View>
 
                 {/* <Button
