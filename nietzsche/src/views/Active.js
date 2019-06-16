@@ -7,7 +7,7 @@ import BottomNav from '../components/BottomNav'
 class ActiveView extends Component {
     
     static navigationOptions = {
-        title: 'Nietzsche',
+        //title: 'Nietzsche',
     };
     
     constructor() {
@@ -18,7 +18,7 @@ class ActiveView extends Component {
         
         return (
             <View>
-                <BottomNav navigate={this.props.navigation.navigate}/>
+                <BottomNav/>
             </View>
         );
     }

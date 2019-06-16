@@ -19,6 +19,6 @@ const MainNavigator = createStackNavigator({
     
 });
 
-const Main = createAppContainer(MainNavigator);
+const Main = () => <ActiveView/>;
 
 export default Main;

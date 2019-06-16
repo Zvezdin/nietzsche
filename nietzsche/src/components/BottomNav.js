@@ -1,79 +1,57 @@
-import React, { Component } from 'react'
 import { ButtonGroup, Button } from 'react-native-elements'
-import { Text, View } from 'react-native'
 import { Icon } from 'react-native-elements';
-import TabNavigator from 'react-native-tab-navigator';
-let Tabs = TabNavigator
 
 import ActiveView from '../views/Active';
 import RecommendedView from '../views/Recommended';
 import MarketplaceView from '../views/Marketplace'
 
-class BottomNav extends Component {
+import * as React from 'react';
+import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
-    constructor(props) {
-        super(props)
+const styles = StyleSheet.create({
+    scene: {
+        flex: 1,
+    },
+});
 
-        this.state = {
-            selectedTab: 'profile',
-        }
+export default class BottomNav extends React.Component {
+    
+    state = {
+        index: 0,
+        routes: [
+            { key: 'first', title: 'First' },
+            { key: 'second', title: 'Second' },
+        ],
+    };
 
-        this.changeTab = this.changeTab.bind(this)
-    }
-
-    changeTab(selectedTab) {
-        this.setState({ selectedTab })
-    }
+    FirstRoute = () => (
+        <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+    );
+    
+    SecondRoute = () => (
+        <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+    );
 
     render() {
-        const { selectedTab } = this.state
 
+        console.log(SceneMap, Dimensions.get('window').width, "TVA IMA LI GO")
+        console.log(<TabView/>, "TVA IMA LI GO")
         return (
             <View>
-                <Tabs>
-                    <Tabs.Item
-                        titleStyle={{ fontWeight: 'bold', fontSize: 10 }}
-                        selectedTitleStyle={{ marginTop: -1, marginBottom: 6 }}
-                        selected={selectedTab === 'feed'}
-                        title={selectedTab === 'feed' ? 'FEED' : null}
-                        renderIcon={() => <Icon containerStyle={{ 
-                            justifyContent: 'center',
-                            alignItems: 'center', marginTop: 12 
-                        }} 
-                        color={'#5e6977'} 
-                        name='whatshot' 
-                        size={33} 
-                        />}
-                        renderSelectedIcon={() => <Icon color={'#6296f9'} name='whatshot' size={30} />}
-                        onPress={() => this.changeTab('feed')}>
-                        <ActiveView />
-                    </Tabs.Item>
-                    <Tabs.Item
-                        titleStyle={{ fontWeight: 'bold', fontSize: 10 }}
-                        selectedTitleStyle={{ marginTop: -1, marginBottom: 6 }}
-                        selected={selectedTab === 'profile'}
-                        title={selectedTab === 'profile' ? 'PROFILE' : null}
-                        renderIcon={() => <Icon containerStyle={{ justifyContent: 'center', alignItems: 'center', marginTop: 12 }} color={'#5e6977'} name='person' size={33} />}
-                        renderSelectedIcon={() => <Icon color={'#6296f9'} name='person' size={30} />}
-                        onPress={() => this.changeTab('profile')}>
-                        <RecommendedView />
-                    </Tabs.Item>
-                    <Tabs.Item
-                        titleStyle={{ fontWeight: 'bold', fontSize: 10 }}
-                        selectedTitleStyle={{ marginTop: -1, marginBottom: 6 }}
-                        selected={selectedTab === 'profile'}
-                        title={selectedTab === 'profile' ? 'PROFILE' : null}
-                        renderIcon={() => <Icon containerStyle={{ justifyContent: 'center', alignItems: 'center', marginTop: 12 }} color={'#5e6977'} name='person' size={33} />}
-                        renderSelectedIcon={() => <Icon color={'#6296f9'} name='person' size={30} />}
-                        onPress={() => this.changeTab('profile')}>
-                        <MarketplaceView />
-                    </Tabs.Item>
-                /* ... more tabs here */
-                </Tabs>
+                <Text> Hello </Text>
+                <TabView
+                    navigationState={this.state}
+                    renderScene={
+                        SceneMap({
+                            first: this.FirstRoute,
+                            second: this.SecondRoute,
+                        })
+                    }
+                    onIndexChange={index => this.setState({ index })}
+                    initialLayout={{ width: Dimensions.get('window').width }}
+                />
             </View>
-        )
+        );
     }
-
 }
-
-export default BottomNav;
