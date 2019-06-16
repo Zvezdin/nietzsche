@@ -123,7 +123,7 @@ class RecommendedView extends Component {
                     marginBottom: 30,
                     marginTop: 20,
                 }}>
-                    No more active goals :(
+                    No more recommended goals :(
                 </Text>
             </ScrollView>
         ) 
