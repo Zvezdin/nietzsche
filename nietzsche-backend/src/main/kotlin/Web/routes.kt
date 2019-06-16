@@ -70,6 +70,12 @@ fun Application.routes() {
 
 
         route("users") {
+            get("/{id}") {
+                val userId = call.parameters["id"]!!.toInt()
+                call.respond( Database.users.get(call.parameters["id"]!!.toInt()) )
+
+            }
+
             get("/{id}/quests") {
                 val userId = call.parameters["id"]!!.toInt()
                 val count = call.request.queryParameters["count"]?.let{ it.toInt() } ?: 5
